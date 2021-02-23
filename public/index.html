@@ -6,6 +6,9 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+    <!-- font awesome (stretch) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
 
     <!-- Custom Google Fonts (Bungee and Source Sans Pro) -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,29 +18,34 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
+    <!-- Nav bar with Tweeter logo -->
     <nav>
-      <span>tweeter</span>
-      
-      <div class="btn btn--scroll">
-        <!-- <a href="#" class="btn__text btn--borderless" title="Compose Tweet"> -->
-           <!-- Compose new tweet button -->
-          <strong class="btn--bold">Write</strong> a new tweet
-          <!-- <br>
-          <i class="btn__icon fas fa-angle-double-down"></i> -->
-        <!-- </a>  -->
-      </div>
-    </nav>
+     
+    
+      <span class="nav--text">tweeter</span>
 
+      <div class="btn btn--scroll">
+        <a href="#" class="btn__text btn--borderless" title="Compose Tweet">
+           <!-- Compose new tweet button -->
+          <span class="btn--bold">Write</span> a new tweet
+          <br>
+          <i class="btn__icon fas fa-angle-double-down"></i>
+        </a>  
+      </div>
+      
+    </nav>
     <!-- Header -->
     <header class="profile">
         <div>
@@ -48,7 +56,51 @@
         </div>
     </header>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <!-- Main content container -->
+    <main class="container">
+      <!-- Error container for validation error messages 
+      <section class="error-container"><i class="fas fa-exclamation-triangle"></i></i> <h4></h4> <i class="fas fa-exclamation-triangle"></i></i> </section> -->
+      <!-- New tweet input box -->
+      <section class="newtweet">
+        <form method="post" action="/tweets" class="newtweet__form">
+          <textarea class="form__textarea" name="text" placeholder="What are you humming about?"></textarea>
+          <div class="form__footer">
+            <input type="submit" value="Tweet" class="form__input">
+            <span class="form__counter">140</span>
+          </div>
+        </form>
+      </section>
+      <!-- Container for tweet list -->
+      <section class="tweets">
+        
+        <article class="tweet">
+          <header class="tweet--header">
+            <div>
+              <img class="tweet--avatar" src="/images/profile-hex.png">
+              <h2 class="tweet--name">Test User</h2>
+            </div>
+            <small class="tweet--handle">@test_user</small>
+          </header>
+          <div class="tweet--body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </div>
+        
+          <footer class="tweet--footer">
+            <small class="footer--age">10 days ago</small>
+            <span class="footer--actions">
+              <a href="#"><i class="fa fa-flag"></i></a>
+              <a href="#"><i class="fa fa-retweet"></i></a>
+              <a href="#"><i class="fa fa-heart"></i></a>' 
+            </span>
+        </footer>
+      </section>
+        </article>
+      
+      <div class="round-btn">
+          <i class="round-btn__icon fas fa-angle-double-up"></i>
+      </div>
+    </main>
+
   </body>
 </html>
